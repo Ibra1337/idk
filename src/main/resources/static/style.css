@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  margin: 0;
+  align-items: center;
+
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnavItems {
+  display: inline-block;
+}
+
+.lgoImg{
+
+  display: block;
+
+  border-radius: 50%;
+}
+
+body {
+  background-image: url("/images/bg.png");
+  background-size: cover;
+  background-position: center center;
+}
+
+footer{
+  alignment: bottom;
+}
+
+.mainContainer{
+  width: 75vw; /* Three-fourths of the viewport width */
+  height: 75vw; /* Match the width to maintain a square aspect ratio */
+  background-color: #3498db; /* Optional background color */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15%;
+}
+.banner{
+  background-color: #04AA6D;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+.articleContainer{
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three items per row */
+  gap: 10px; /* Adjust the gap between items as needed */
+  /* Additional styling for the container, if needed */
+  grid-auto-rows: auto; /* Automatically adjust row height based on content */
+}
+
+.article{
+  flex: 1;
+  flex-direction: column;
+  width: 150px;
+  text-align: center;
+  word-wrap: break-word;
+  justify-content: center;
+  align-items: center;
+  border: dotted;
+  overflow: hidden;
+  margin: 20px;
+  padding: 20px;
+}
+
+.description{
+
+  height: 90px;
+}
+.articleTitle{
+  alignment: center;
+
+}
+
+.articleImg{
+  margin-right: auto;
+  margin-left: auto;
+}
