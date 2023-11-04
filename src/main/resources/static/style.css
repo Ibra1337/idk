@@ -104,3 +104,19 @@ footer{
   margin-right: auto;
   margin-left: auto;
 }
+
+.formContainer{
+
+}
+
+
+.registrationForm{
+  margin: 20px;
+  background: saddlebrown;
+  border: 20px;
+  border: black;
+}
+
+.articleImg label{
+  font-family: "Dubai Medium";
+}

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -37,29 +38,33 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String processRegistration( RegistrationDto form )
-    {
+    public String processRegistration(RegistrationDto form, RedirectAttributes redirectAttributes) {
         log.info(form.toString());
         var role = roleRepo.findByAuthority("ROLE_USER");
 
         Role r;
-        if (role.isEmpty())
-        {
+        if (role.isEmpty()) {
             r = new Role("ROLE_USER");
             roleRepo.save(r);
-        }else
-        {
+        } else {
             r = role.get();
         }
+        var fromDb = userRepo.findByUsername(form.getUsername());
+        if (fromDb.isEmpty()) {
+            Set<Role> as = new HashSet<>();
+            as.add(r);
+            User u = form.toUser(encoder);
+            u.setAuthorities(as);
+            userRepo.save(u);
 
-        Set<Role> as = new HashSet<>();
-        as.add(r);
-        User u = form.toUser(encoder);
-        u.setAuthorities(as);
-        userRepo.save(u);
-
-        return "redirect:/login";
+            return "redirect:/login";
+        } else {
+            redirectAttributes.addAttribute("error", "UsernameNotFound");
+            return "redirect:/register";
+        }
     }
+
+
 
 
 
