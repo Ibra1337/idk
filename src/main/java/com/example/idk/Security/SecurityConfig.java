@@ -57,15 +57,20 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests( auth -> auth
                         .requestMatchers("/success").hasRole("USER")
-                        .requestMatchers( "/*" , "images/**"  ).permitAll()
+                        .requestMatchers( "/*" , "images/**" , "/article/*"  ).permitAll()
                 );
         http.formLogin( login -> login
                                 .loginPage("/login")
                                 .defaultSuccessUrl("/home")
         );
-        http.sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        );
+        http.sessionManagement(sesion -> sesion.
+                        sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                        .invalidSessionUrl("/login?invalidSession=true") // Redirect to this URL if session is invalid/expired
+                        .maximumSessions(1) // Allow only one session per user
+                        .expiredUrl("/login?sessionExpired=true") // Redirect to this URL if session is expired
+
+                );
+
         http.logout(conf -> conf
                 .logoutSuccessUrl("/")
         );

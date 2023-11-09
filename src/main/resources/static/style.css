@@ -48,20 +48,23 @@ body {
   background-image: url("/images/bg.png");
   background-size: cover;
   background-position: center center;
+  min-height: 100vw;
+  min-width: 100vw;
+
 }
 
-footer{
-  alignment: bottom;
+.footer {
+  text-align: center;
 }
 
-.mainContainer{
-  width: 75vw; /* Three-fourths of the viewport width */
-  height: 75vw; /* Match the width to maintain a square aspect ratio */
-  background-color: #3498db; /* Optional background color */
-  margin-left: auto;
-  margin-right: auto;
+.mainContainer {
+  width: 75vw;
+  height: 75vw;
+  background-color: #3498db;
+  margin: 0 auto;
   margin-top: 15%;
 }
+
 .banner{
   background-color: #04AA6D;
   margin-bottom: 50px;
@@ -80,7 +83,7 @@ footer{
 .article{
   flex: 1;
   flex-direction: column;
-  width: 150px;
+  width: auto;
   text-align: center;
   word-wrap: break-word;
   justify-content: center;
@@ -95,14 +98,13 @@ footer{
 
   height: 90px;
 }
-.articleTitle{
-  alignment: center;
 
+.articleTitle {
+  text-align: center;
 }
 
-.articleImg{
-  margin-right: auto;
-  margin-left: auto;
+.articleImg {
+  margin: 0 auto;
 }
 
 .formContainer{
@@ -119,4 +121,10 @@ footer{
 
 .articleImg label{
   font-family: "Dubai Medium";
+}
+
+.textContainer {
+  display: inline-block;
+  border: 1px solid black; /* Optional: Add a border to visualize the div size */
+  background: saddlebrown;
 }
