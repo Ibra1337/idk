@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+<div class="topnav"  >
+
+
+    <div class="lgoImg">
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo.png}" th:height="70">
+        </a>
+    </div>
+    <div class="sth">
+        <div class="topnavItems>">
+
+            <a class="active" href="/">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a th:href="@{login}">Log in</a>
+            <a th:href="/createArticle">Create article</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
