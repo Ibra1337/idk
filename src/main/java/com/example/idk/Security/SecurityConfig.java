@@ -65,9 +65,9 @@ public class SecurityConfig {
         );
         http.sessionManagement(sesion -> sesion.
                         sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                        .invalidSessionUrl("/login?invalidSession=true") // Redirect to this URL if session is invalid/expired
-                        .maximumSessions(1) // Allow only one session per user
-                        .expiredUrl("/login?sessionExpired=true") // Redirect to this URL if session is expired
+                        .invalidSessionUrl("/login?invalidSession=true") 
+                        .maximumSessions(1)
+                        .expiredUrl("/login?sessionExpired=true") 
 
                 );
 
